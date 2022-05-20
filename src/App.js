@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // components
 import Header from "./components/header/header.component";
 import About from "./components/about/about.component";
@@ -12,13 +12,17 @@ import Footer from "./components/footer/footer.component";
 const App = () => {
   return (
     <>
-      <Header />
-      <NavBar />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Router>
+        <Header />
+        <NavBar />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 };
